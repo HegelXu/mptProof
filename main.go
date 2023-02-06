@@ -26,7 +26,7 @@ func main() {
 	}
 
 	fmt.Print("Test the correct proof:")
-	if !verifymptproof.VerifyMerkleProof(block.TxHash(), *proof) {
+	if !verifymptproof.VerifyMerkleProof(tx, block.TxHash(), *proof) {
 		fmt.Println("Verification failed.")
 	} else {
 		fmt.Println("Verification succeeded.")
@@ -34,7 +34,7 @@ func main() {
 
 	fmt.Print("Test incorrect proof:")
 	proof.Value = append(proof.Value, '!')
-	if !verifymptproof.VerifyMerkleProof(block.TxHash(), *proof) {
+	if !verifymptproof.VerifyMerkleProof(tx, block.TxHash(), *proof) {
 		fmt.Println("Incorrect MPT Proof.")
 	} else {
 		fmt.Println("wrong!")
