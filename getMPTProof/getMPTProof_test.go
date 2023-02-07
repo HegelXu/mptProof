@@ -54,6 +54,7 @@ func TestGetMerkleProof(t *testing.T) {
 	fmt.Print("-----Test the correct proof:-----")
 	if !verifymptproof.VerifyMerkleProof(tx, block.TxHash(), *proof) {
 		fmt.Println("Verification failed.")
+		t.Error("failed")
 	} else {
 		fmt.Println("Verification succeeded.")
 	}
@@ -64,6 +65,7 @@ func TestGetMerkleProof(t *testing.T) {
 		fmt.Println("Incorrect MPT Proof.")
 	} else {
 		fmt.Println("wrong!")
+		t.Error("failed")
 	}
 
 }
